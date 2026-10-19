@@ -1,0 +1,41 @@
+﻿vehicle_id,vehicle_name,transport_mode,capacity_kg,operator_id,home_base
+ROAD-001,CP Roadliner 01,ROAD,24000,CP-OP-001,Thailand
+ROAD-002,CP Roadliner 02,ROAD,24000,CP-OP-002,Thailand
+ROAD-003,CP Roadliner 03,ROAD,24000,CP-OP-003,Thailand
+ROAD-004,CP Roadliner 04,ROAD,24000,CP-OP-004,Thailand
+ROAD-005,CP Roadliner 05,ROAD,24000,CP-OP-005,Thailand
+ROAD-006,CP Roadliner 06,ROAD,24000,CP-OP-006,Thailand
+ROAD-007,CP Roadliner 07,ROAD,24000,CP-OP-007,Thailand
+ROAD-008,CP Roadliner 08,ROAD,24000,CP-OP-008,Thailand
+ROAD-009,CP Roadliner 09,ROAD,24000,CP-OP-009,Thailand
+ROAD-010,CP Roadliner 10,ROAD,24000,CP-OP-010,Thailand
+ROAD-011,CP Roadliner 11,ROAD,24000,CP-OP-011,Thailand
+ROAD-012,CP Roadliner 12,ROAD,24000,CP-OP-012,Thailand
+SEA-001,CP Container Vessel 01,SEA,18000000,CP-OP-013,Thailand
+SEA-002,CP Container Vessel 02,SEA,18000000,CP-OP-014,Thailand
+SEA-003,CP Container Vessel 03,SEA,18000000,CP-OP-015,Thailand
+SEA-004,CP Container Vessel 04,SEA,18000000,CP-OP-016,Thailand
+SEA-005,CP Container Vessel 05,SEA,18000000,CP-OP-017,Thailand
+SEA-006,CP Container Vessel 06,SEA,18000000,CP-OP-018,Thailand
+SEA-007,CP Container Vessel 07,SEA,18000000,CP-OP-019,Thailand
+SEA-008,CP Container Vessel 08,SEA,18000000,CP-OP-020,Thailand
+SEA-009,CP Container Vessel 09,SEA,18000000,CP-OP-021,Thailand
+SEA-010,CP Container Vessel 10,SEA,18000000,CP-OP-022,Thailand
+SEA-011,CP Container Vessel 11,SEA,18000000,CP-OP-023,Thailand
+SEA-012,CP Container Vessel 12,SEA,18000000,CP-OP-024,Thailand
+SEA-013,CP Container Vessel 13,SEA,18000000,CP-OP-025,Thailand
+SEA-014,CP Container Vessel 14,SEA,18000000,CP-OP-026,Thailand
+SEA-015,CP Container Vessel 15,SEA,18000000,CP-OP-027,Thailand
+SEA-016,CP Container Vessel 16,SEA,18000000,CP-OP-028,Thailand
+AIR-001,CP Cargo Aircraft 01,AIR,100000,CP-OP-029,Thailand
+AIR-002,CP Cargo Aircraft 02,AIR,100000,CP-OP-030,Thailand
+AIR-003,CP Cargo Aircraft 03,AIR,100000,CP-OP-031,Thailand
+AIR-004,CP Cargo Aircraft 04,AIR,100000,CP-OP-032,Thailand
+AIR-005,CP Cargo Aircraft 05,AIR,100000,CP-OP-033,Thailand
+AIR-006,CP Cargo Aircraft 06,AIR,100000,CP-OP-034,Thailand
+AIR-007,CP Cargo Aircraft 07,AIR,100000,CP-OP-035,Thailand
+AIR-008,CP Cargo Aircraft 08,AIR,100000,CP-OP-036,Thailand
+AIR-009,CP Cargo Aircraft 09,AIR,100000,CP-OP-037,Thailand
+AIR-010,CP Cargo Aircraft 10,AIR,100000,CP-OP-038,Thailand
+AIR-011,CP Cargo Aircraft 11,AIR,100000,CP-OP-039,Thailand
+AIR-012,CP Cargo Aircraft 12,AIR,100000,CP-OP-040,Thailand

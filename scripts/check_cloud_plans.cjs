@@ -1,0 +1,32 @@
+const fs=require('node:fs');
+const vm=require('node:vm');
+const assert=require('node:assert/strict');
+const context={console,Date,JSON,sessionStorage:{getItem(){return null},setItem(){},removeItem(){}},fetch(){throw Error('Unexpected network access')}};
+vm.createContext(context);
+vm.runInContext(fs.readFileSync('international-dashboard/supabase.js','utf8'),context);
+async function run(){
+  await assert.rejects(vm.runInContext('cpSavePlan({id:"draft",result:{}})',context),/ฐานข้อมูล/);
+  vm.runInContext('cpCloudReady=true;',context);
+  await assert.rejects(vm.runInContext('cpSavePlan({id:"draft",result:{}})',context),/เข้าสู่ระบบ/);
+  vm.runInContext('cpSession={access_token:"test-only",expires_at:Date.now()/1000+3600};',context);
+  context.requests=[];
+  context.reply=[{id:'draft',result:{selectedMode:'AIR'}}];
+  vm.runInContext('cpRequest=async(path,options)=>{requests.push({path,options});return reply;}',context);
+  await vm.runInContext('cpSavePlan({id:"draft",result:{selectedMode:"AIR"}})',context);
+  assert.equal(JSON.parse(context.requests[0].options.body).result.selectedMode,'AIR');
+  assert.equal(vm.runInContext('cpDecisionRecords.length',context),1);
+  context.reply=[];
+  await assert.rejects(vm.runInContext('cpDeletePlan("draft")',context),/ถูกใช้งาน/);
+  assert.equal(vm.runInContext('cpDecisionRecords.length',context),1,'failed delete must preserve cache');
+  context.reply={id:'draft',status:'ACTIVE',shipment:{shipment_id:'CP-DSS-test',revenue_usd:1000}};
+  await vm.runInContext('cpActivatePlan("draft","Hamburg","SEA-001",1000,10)',context);
+  assert.equal(context.requests.at(-1).path,'/rest/v1/rpc/activate_decision_plan');
+  assert.equal(JSON.parse(context.requests.at(-1).options.body).p_overhead,10);
+  assert.equal(vm.runInContext('cpDecisionRecords[0].shipment.shipment_id',context),'CP-DSS-test');
+  const clean=vm.runInContext('cpCleanRecord({actual_delivery_utc:"",decision_plan_id:"",revenue_usd:"",additional_cost_usd:0})',context);
+  assert.equal(clean.actual_delivery_utc,null);
+  assert.equal(clean.revenue_usd,null);
+  assert.equal(clean.additional_cost_usd,0);
+  console.log('PASS: sign-in guards, selected plan payload, failed-delete cache, atomic activation request, nullable fields');
+}
+run().catch(error=>{console.error(error);process.exitCode=1;});

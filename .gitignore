@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+node_modules/
+.env
+.env.*
+!.env.example
+.vercel/
+*.inspect.ndjson
+*.zip
+.DS_Store
+Thumbs.db
+
+# Local screenshots may contain account information
+international-dashboard/preview/
